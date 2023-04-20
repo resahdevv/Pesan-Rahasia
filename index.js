@@ -10,6 +10,8 @@ const {
   useMultiFileAuthState,
   DisconnectReason,
   fetchLatestBaileysVersion,
+  generateForwardMessageContent,
+  generateWAMessageFromContent,
   makeInMemoryStore,
   jidDecode,
   proto,
@@ -125,16 +127,17 @@ function smsg(conn, m, store) {
    */
   m.copy = () => exports.smsg(conn, M.fromObject(M.toObject(m)));
 
-  /**
+   /**
    *
    * @param {*} jid
    * @param {*} forceForward
    * @param {*} options
    * @returns
    */
-  m.copyNForward = (jid = m.chat, forceForward = false, options = {}) => conn.copyNForward(jid, m, forceForward, options);
+   m.copyNForward = (jid = m.chat, forceForward = false, options = {}) =>
+   conn.copyNForward(jid, m, forceForward, options);
 
-  return m;
+ return m;
 }
 
 async function startEza() {
@@ -331,7 +334,43 @@ async function startEza() {
       return err;
     }
   };
+  
+    /**
+   *
+   * @param {*} jid
+   * @param {*} buttons
+   * @param {*} caption
+   * @param {*} footer
+   * @param {*} quoted
+   * @param {*} options
+   */
+    client.sendButtonText = (
+      jid,
+      buttons = [],
+      text,
+      footer,
+      quoted = "",
+      options = {}
+    ) => {
+      let buttonMessage = {
+        text,
+        footer,
+        buttons,
+        headerType: 2,
+        ...options,
+      };
+      client.sendMessage(jid, buttonMessage, { quoted, ...options });
+    };
 
+    /**
+     * 
+     * @param {*} jid 
+     * @param {*} message 
+     * @param {*} forceForward 
+     * @param {*} options 
+     * @returns 
+     */
+    
   client.copyNForward = async (jid, message, forceForward = false, options = {}) => {
     let vtype
     if (options.readViewOnce) {
@@ -365,33 +404,6 @@ async function startEza() {
     await client.relayMessage(jid, waMessage.message, { messageId:  waMessage.key.id })
     return waMessage
   }
-
-    /**
-   *
-   * @param {*} jid
-   * @param {*} buttons
-   * @param {*} caption
-   * @param {*} footer
-   * @param {*} quoted
-   * @param {*} options
-   */
-    client.sendButtonText = (
-      jid,
-      buttons = [],
-      text,
-      footer,
-      quoted = "",
-      options = {}
-    ) => {
-      let buttonMessage = {
-        text,
-        footer,
-        buttons,
-        headerType: 2,
-        ...options,
-      };
-      client.sendMessage(jid, buttonMessage, { quoted, ...options });
-    };
 
   client.sendImage = async (jid, path, caption = "", quoted = "", options) => {
     let buffer = Buffer.isBuffer(path)
