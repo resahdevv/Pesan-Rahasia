@@ -143,7 +143,7 @@ async function startEza() {
   console.log(`using WA v${version.join(".")}, isLatest: ${isLatest}`);
   console.log(
     color(
-      figlet.textSync("Push-Kontak", {
+      figlet.textSync("Pesan-Rahasia", {
         font: "Standard",
         horizontalLayout: "default",
         vertivalLayout: "default",
@@ -156,7 +156,7 @@ async function startEza() {
   const client = EzaConnect({
     logger: pino({ level: "silent" }),
     printQRInTerminal: true,
-    browser: ["Push-Kontak", "Chrome", "1.0.0"],
+    browser: ["Pesan-Rahasia", "Chrome", "1.0.0"],
     patchMessageBeforeSending: (message) => {
       const requiresPatch = !!(
         message.buttonsMessage
