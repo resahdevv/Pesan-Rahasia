@@ -24,7 +24,7 @@ Example: ```.secret 6285742632270|Secret|Hi Sayang``` Sangat cocok digunakan unt
 ```ts
 global.owner = ["6285742632270"];
 global.author = "RezaDevv";
-global.packname = "Push-Kontak";
+global.packname = "Pesan-Rahasia";
 global.sessionName = "Bot-Session";
 global.versionbot = "1.0.0";
 ```
