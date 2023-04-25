@@ -1,5 +1,5 @@
 [![-----------------------------------------------------](https://raw.githubusercontent.com/andreasbm/readme/master/assets/lines/colored.png)](#table-of-contents)
-# Push Kontak
+# Pesan Rahasia
 
 ***Push Kontak dibuat dengan nodejs menggunakan library [Bailyes](https://github.com/adiwajshing/Baileys)***
 
@@ -58,7 +58,7 @@ $ apt install git -y
 $ apt install nodejs -y
 $ apt install ffmpeg -y
 $ git clone https://github.com/resahdevv/Pesan-Rahasia.git
-$ cd WhatsApp-Ai
+$ cd Pesan-Rahasia
 $ yarn
 $ npm start
 ```
