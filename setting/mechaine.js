@@ -114,6 +114,7 @@ module.exports = rezadevv = async (client, m, chatUpdate, store) => {
           let nomor = text.split("|")[0].replace(/[^0-9]/g, '')
           let pengirim = text.split("|")[1]
           let pesan = text.split("|")[2]
+          if (roomChat) return m.reply(`_Kamu/Target sedang dalam room chat ketik ${prefix}stopsecret untuk menghapus sesi_`)
           let cek_nomor = await client.onWhatsApp(nomor + '@s.whatsapp.net') 
           if (cek_nomor.length === 0) return m.reply('```Nomor Tidak Terdaftar Di WhatsApp```')
           if (nomor === botNumber.replace("@s.whatsapp.net", "")) return m.reply('```Ini Adalah Nomor Bot```')
@@ -129,7 +130,7 @@ module.exports = rezadevv = async (client, m, chatUpdate, store) => {
         case "create_room_chat" : {
           if (m.isGroup) return m.reply('Khusus Private Chat')
           if (!text) return m.reply('```Text Not Found```')
-          if (roomA || roomB ) return m.reply(`_Kamu sedang dalam room chat ketik ${prefix}stopsecret untuk menghapus sesi_`)
+          if (roomChat) return m.reply(`_Kamu/Target sedang dalam room chat ketik ${prefix}stopsecret untuk menghapus sesi_`)
           client.sendMessage(text + '@s.whatsapp.net', {text: 'Chat Secret Terhubung✓'})
           let id = + new Date
           const obj = {
