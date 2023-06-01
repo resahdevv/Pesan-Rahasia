@@ -5,7 +5,7 @@
 ***AZE BOT TELEGRAM Using official library [Telegraf](https://github.com/telegraf/telegraf)***
 
 ## 🔎BACA DAHULU!
-Bot telegram multi fungsi menggunakan api atau pihak ke tiga sebagai pemberi informasi dari berbagai sumber. Serta terdapat feature ai dari OPEN AI dan telah di lengkapi dengan model : ```gpt-3.5-turbo```.
+Bot telegram multi fungsi menggunakan api atau pihak ke tiga sebagai pemberi informasi dari berbagai sumber. Serta terdapat feature ai dari ```OPEN AI``` dan telah di lengkapi dengan model : ```gpt-3.5-turbo```.
 
 ## 📌CATATAN USER
 > **Warning**: Kode sumber ini memiliki lisensi berbayar. Melakukan pembajakan atau dengan sengaja memperjual belikan kode sumber ini selain dari vendor atau pengembang akan dikenakan sanknsi serta tidak akan mendapatkan update untuk pembaruan versi mendatang...()
